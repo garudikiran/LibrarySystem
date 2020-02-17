@@ -1,0 +1,52 @@
+<p>display works!</p>
+<p>
+    <a>Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Books[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Books[0].Pagecount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Books[0].Point)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Books[0].Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Books[0].Type)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach (var item in Model.Books) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pagecount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Point)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author.AuthorId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type.TypeId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.BookId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.BookId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.BookId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
